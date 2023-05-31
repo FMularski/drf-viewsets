@@ -1,5 +1,7 @@
 FROM python:3.10-alpine
 
+LABEL maintainer="mularskif@gmail.com"
+
 ENV PYTHONUNBUFFERED=1
 ENV POETRY_VERSION=1.2.2
 
@@ -15,3 +17,6 @@ COPY poetry.lock pyproject.toml /code/
 RUN poetry install --without dev
 
 COPY . /code/
+
+RUN adduser app-user --disabled-password --no-create-home
+USER app-user
