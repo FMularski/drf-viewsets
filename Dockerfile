@@ -17,6 +17,3 @@ COPY poetry.lock pyproject.toml /code/
 RUN poetry install --without dev
 
 COPY . /code/
-
-RUN adduser app-user --disabled-password --no-create-home
-USER app-user
